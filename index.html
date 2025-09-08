@@ -69,14 +69,82 @@
         <!-- Main Content Grid: Layout is one column on small screens, three columns on large screens -->
         <main class="grid grid-cols-1 lg:grid-cols-3 gap-8">
             
-            <!-- Left Column: Contains Summary, Experience, Certifications, and Projects sections -->
-            <div class="lg:col-span-2 space-y-8">
+            <!-- Right Column: First in HTML source to appear at the top on mobile. Grid utilities position it on the right on desktop. -->
+            <div class="space-y-8 lg:col-start-3">
                 
-                <!-- Summary Section -->
-                <section class="card p-8 bg-white dark:bg-gray-800">
-                    <h2 class="text-3xl font-bold border-b-2 border-gray-200 dark:border-gray-700 pb-2 mb-4 text-gray-900 dark:text-white">Summary</h2>
-                    <p class="text-lg leading-relaxed">Detail-oriented Data Analyst with hands-on experience in SQL, Power BI, and Tableau. I specialize in transforming complex data into actionable insights, optimizing database performance, and building intuitive dashboards to drive business decisions. Passionate about leveraging data to solve problems and enhance reporting accuracy.</p>
+                 <!-- Contact Section -->
+                 <section class="card p-6 bg-white dark:bg-gray-800">
+                    <h2 class="text-2xl font-bold mb-4 text-gray-900 dark:text-white">Contact</h2>
+                    <a href="mailto:mohamedam0109m@gmail.com" class="flex items-center space-x-4 mb-3 group">
+                        <i class="fas fa-envelope fa-lg text-gray-500 dark:text-gray-400 group-hover:text-blue-500"></i>
+                        <span class="text-lg group-hover:underline">mohamedam0109m@gmail.com</span>
+                    </a>
+                    <a href="tel:01095404274" class="flex items-center space-x-4 mb-3 group">
+                        <i class="fas fa-phone fa-lg text-gray-500 dark:text-gray-400 group-hover:text-blue-500"></i>
+                        <span class="text-lg group-hover:underline">01095404274</span>
+                    </a>
+                    <a href="https://www.linkedin.com/in/mohammed-ashraf-504a98356" target="_blank" rel="noopener noreferrer" class="flex items-center space-x-4 group">
+                        <i class="fab fa-linkedin fa-lg text-gray-500 dark:text-gray-400 group-hover:text-blue-500"></i>
+                        <span class="text-lg group-hover:underline">LinkedIn Profile</span>
+                    </a>
                 </section>
+
+                <!-- Summary Section -->
+                <section class="card p-6 bg-white dark:bg-gray-800">
+                    <h2 class="text-2xl font-bold border-b-2 border-gray-200 dark:border-gray-700 pb-2 mb-4 text-gray-900 dark:text-white">Summary</h2>
+                    <p class="text-base leading-relaxed">Detail-oriented Data Analyst with hands-on experience in SQL, Power BI, and Tableau. I specialize in transforming complex data into actionable insights, optimizing database performance, and building intuitive dashboards to drive business decisions.</p>
+                </section>
+
+                <!-- Key Achievements Section -->
+                <section class="card p-6 bg-white dark:bg-gray-800">
+                    <h2 class="text-2xl font-bold mb-4 text-gray-900 dark:text-white">Key Achievements</h2>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-star text-yellow-400 mt-1 mr-3"></i>
+                            <p><strong class="font-semibold">SQL Optimization:</strong> Increased database performance by 20%.</p>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-chart-line text-green-500 mt-1 mr-3"></i>
+                             <p><strong class="font-semibold">Tableau Dashboards:</strong> Improved decision-making by 30%.</p>
+                        </li>
+                        <li class="flex items-start">
+                             <i class="fas fa-check-circle text-blue-500 mt-1 mr-3"></i>
+                           <p><strong class="font-semibold">Reporting Accuracy:</strong> Increased reporting accuracy by 25%.</p>
+                        </li>
+                         <li class="flex items-start">
+                           <i class="fas fa-cogs text-purple-500 mt-1 mr-3"></i>
+                           <p><strong class="font-semibold">Process Efficiency:</strong> Reduced analysis time by 40%.</p>
+                        </li>
+                    </ul>
+                </section>
+
+                <!-- Skills Section -->
+                <section class="card p-6 bg-white dark:bg-gray-800">
+                    <h2 class="text-2xl font-bold mb-4 text-gray-900 dark:text-white">Skills</h2>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="tag bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300">SQL</span>
+                        <span class="tag bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300">Tableau</span>
+                        <span class="tag bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300">Power BI</span>
+                        <span class="tag bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300">Excel</span>
+                        <span class="tag bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300">Python</span>
+                        <span class="tag bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300">Machine Learning</span>
+                        <span class="tag bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300">Pandas</span>
+                        <span class="tag bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300">Matplotlib</span>
+                        <span class="tag bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300">Data Cleaning</span>
+                    </div>
+                </section>
+
+                <!-- Education Section -->
+                <section class="card p-6 bg-white dark:bg-gray-800">
+                    <h2 class="text-2xl font-bold mb-4 text-gray-900 dark:text-white">Education</h2>
+                    <p class="text-lg font-semibold">Bachelor of Computer Science</p>
+                    <p class="text-md text-gray-600 dark:text-gray-400">Modern Academy, Maadi</p>
+                    <p class="text-md text-gray-600 dark:text-gray-400">Expected Graduation: May 2026</p>
+                </section>
+            </div>
+
+            <!-- Left Column: Second in HTML source. Grid utilities position it on the left on desktop. -->
+            <div class="lg:col-span-2 lg:col-start-1 lg:row-start-1 space-y-8">
 
                 <!-- Experience Section -->
                 <section class="card p-8 bg-white dark:bg-gray-800">
@@ -161,74 +229,6 @@
                             <p class="text-lg leading-relaxed">Created a customer analytics dashboard for a telecom company to identify key drivers of churn, segment at-risk accounts, and provide a 360-degree view of the customer base.</p>
                         </div>
                     </div>
-                </section>
-            </div>
-
-            <!-- Right Column: Contains Contact, Key Achievements, Skills, and Education sections -->
-            <div class="space-y-8">
-                
-                 <!-- Contact Section -->
-                 <section class="card p-6 bg-white dark:bg-gray-800">
-                    <h2 class="text-2xl font-bold mb-4 text-gray-900 dark:text-white">Contact</h2>
-                    <a href="mailto:mohamedam0109m@gmail.com" class="flex items-center space-x-4 mb-3 group">
-                        <i class="fas fa-envelope fa-lg text-gray-500 dark:text-gray-400 group-hover:text-blue-500"></i>
-                        <span class="text-lg group-hover:underline">mohamedam0109m@gmail.com</span>
-                    </a>
-                    <a href="tel:01095404274" class="flex items-center space-x-4 mb-3 group">
-                        <i class="fas fa-phone fa-lg text-gray-500 dark:text-gray-400 group-hover:text-blue-500"></i>
-                        <span class="text-lg group-hover:underline">01095404274</span>
-                    </a>
-                    <a href="https://www.linkedin.com/in/mohammed-ashraf-504a98356" target="_blank" rel="noopener noreferrer" class="flex items-center space-x-4 group">
-                        <i class="fab fa-linkedin fa-lg text-gray-500 dark:text-gray-400 group-hover:text-blue-500"></i>
-                        <span class="text-lg group-hover:underline">LinkedIn Profile</span>
-                    </a>
-                </section>
-
-                <!-- Key Achievements Section -->
-                <section class="card p-6 bg-white dark:bg-gray-800">
-                    <h2 class="text-2xl font-bold mb-4 text-gray-900 dark:text-white">Key Achievements</h2>
-                    <ul class="space-y-3">
-                        <li class="flex items-start">
-                            <i class="fas fa-star text-yellow-400 mt-1 mr-3"></i>
-                            <p><strong class="font-semibold">SQL Optimization:</strong> Increased database performance by 20%.</p>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-chart-line text-green-500 mt-1 mr-3"></i>
-                             <p><strong class="font-semibold">Tableau Dashboards:</strong> Improved decision-making by 30% by developing 15 dashboards.</p>
-                        </li>
-                        <li class="flex items-start">
-                             <i class="fas fa-check-circle text-blue-500 mt-1 mr-3"></i>
-                           <p><strong class="font-semibold">Reporting Accuracy:</strong> Increased reporting accuracy by 25%.</p>
-                        </li>
-                         <li class="flex items-start">
-                           <i class="fas fa-cogs text-purple-500 mt-1 mr-3"></i>
-                           <p><strong class="font-semibold">Process Efficiency:</strong> Reduced analysis time by 40%.</p>
-                        </li>
-                    </ul>
-                </section>
-
-                <!-- Skills Section -->
-                <section class="card p-6 bg-white dark:bg-gray-800">
-                    <h2 class="text-2xl font-bold mb-4 text-gray-900 dark:text-white">Skills</h2>
-                    <div class="flex flex-wrap gap-3">
-                        <span class="tag bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300">SQL</span>
-                        <span class="tag bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300">Tableau</span>
-                        <span class="tag bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300">Power BI</span>
-                        <span class="tag bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300">Excel</span>
-                        <span class="tag bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300">Python</span>
-                        <span class="tag bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300">Machine Learning</span>
-                        <span class="tag bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300">Pandas</span>
-                        <span class="tag bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300">Matplotlib</span>
-                        <span class="tag bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300">Data Cleaning</span>
-                    </div>
-                </section>
-
-                <!-- Education Section -->
-                <section class="card p-6 bg-white dark:bg-gray-800">
-                    <h2 class="text-2xl font-bold mb-4 text-gray-900 dark:text-white">Education</h2>
-                    <p class="text-lg font-semibold">Bachelor of Computer Science</p>
-                    <p class="text-md text-gray-600 dark:text-gray-400">Modern Academy, Maadi</p>
-                    <p class="text-md text-gray-600 dark:text-gray-400">Expected Graduation: May 2026</p>
                 </section>
             </div>
         </main>
