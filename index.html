@@ -1,170 +1,188 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Meta tags for character set and responsive design -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mohamed Ashraf - Data Analyst Portfolio</title>
+    <title>Mohamed Ashraf - Portfolio</title>
+    
+    <!-- Tailwind CSS for styling -->
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts (Inter) -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Script to handle dark/light theme persistence -->
+    <script>
+        // On page load or when changing themes, best to add inline in `head` to avoid FOUC (Flash of Unstyled Content)
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark')
+        }
+    </script>
+
+    <!-- Custom CSS Styles -->
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f3f4f6; /* A light gray background */
         }
         .card {
-            background-color: white;
-            border-radius: 12px;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease-in-out;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
         }
         .card:hover {
             transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
         }
         .tag {
-            background-color: #e5e7eb;
-            color: #374151;
-            padding: 4px 12px;
-            border-radius: 9999px;
-            font-size: 0.875rem;
-            font-weight: 500;
-        }
-        .icon {
-            transition: color 0.3s ease;
-        }
-        .icon:hover {
-            color: #1d4ed8; /* A nice blue for hover */
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
     </style>
 </head>
-<body class="text-gray-800">
+<body class="bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-200">
 
+    <!-- Main container for the entire page -->
     <div class="container mx-auto p-4 md:p-8 max-w-6xl">
-        <!-- Header Section -->
-        <header class="text-center mb-12">
-            <h1 class="text-5xl md:text-6xl font-bold text-gray-900 mb-2">Mohamed Ashraf</h1>
-            <p class="text-xl md:text-2xl text-gray-600">Data Analyst | SQL Expert | Data Visualization | Tableau Dashboard Developer</p>
+        
+        <!-- Header Section: Contains main heading, subheading, and theme toggle button -->
+        <header class="relative text-center mb-16">
+            <h1 class="text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-2">Mohamed Ashraf</h1>
+            <p class="text-xl md:text-2xl text-gray-600 dark:text-gray-400">Data Analyst | SQL Expert | Data Visualization</p>
+            
+            <!-- Theme Toggle Button -->
+            <button id="theme-toggle" type="button" class="absolute top-0 right-0 text-gray-500 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5">
+                <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+                <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.707.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+            </button>
         </header>
 
+        <!-- Main Content Grid: Layout is one column on small screens, three columns on large screens -->
         <main class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            <!-- Left Column -->
+            
+            <!-- Left Column: Contains Summary, Experience, Certifications, and Projects sections -->
             <div class="lg:col-span-2 space-y-8">
+                
                 <!-- Summary Section -->
-                <section class="card p-8">
-                    <h2 class="text-3xl font-bold border-b-2 border-gray-200 pb-2 mb-4">Summary</h2>
-                    <p class="text-lg leading-relaxed">I am a data analyst with hands-on experience in SQL, Excel, Power BI, and Tableau. I work on extracting and transforming data to improve database performance and create dashboards that track key performance indicators. My focus is on turning raw data into clear insights that support better decision-making, while keeping documentation simple and well-organized.</p>
+                <section class="card p-8 bg-white dark:bg-gray-800">
+                    <h2 class="text-3xl font-bold border-b-2 border-gray-200 dark:border-gray-700 pb-2 mb-4 text-gray-900 dark:text-white">Summary</h2>
+                    <p class="text-lg leading-relaxed">Detail-oriented Data Analyst with hands-on experience in SQL, Power BI, and Tableau. I specialize in transforming complex data into actionable insights, optimizing database performance, and building intuitive dashboards to drive business decisions. Passionate about leveraging data to solve problems and enhance reporting accuracy.</p>
                 </section>
 
                 <!-- Experience Section -->
-                <section class="card p-8">
-                    <h2 class="text-3xl font-bold border-b-2 border-gray-200 pb-2 mb-6">Experience</h2>
-                    <div>
+                <section class="card p-8 bg-white dark:bg-gray-800">
+                    <h2 class="text-3xl font-bold border-b-2 border-gray-200 dark:border-gray-700 pb-2 mb-6 text-gray-900 dark:text-white">Experience</h2>
+                    <div class="mb-8">
                         <h3 class="text-2xl font-semibold">Junior - Data Analyst</h3>
-                        <p class="text-lg text-gray-600 mb-4">Cairo | Focused on data manipulation and visualization</p>
+                        <p class="text-lg text-gray-600 dark:text-gray-400 mb-4">Freelance | Cairo | January 2025 - Present</p>
                         <ul class="list-disc list-inside space-y-2 text-lg">
-                            <li>Leveraged SQL queries to extract, transform and load data into databases.</li>
-                            <li>Optimized existing database structures for better performance on analytics tasks.</li>
-                            <li>Built visualizations that enabled users to quickly interpret results from complex analyses.</li>
-                            <li>Provided data-driven solutions to support decision making.</li>
-                            <li>Maintained documentation of all the processes related to Data Analysis.</li>
-                            <li>Developed dashboards with Tableau to monitor key performance indicators.</li>
-                            <li> Worked directly with clients under pressure to deliver high-quality results within tight deadlines</li>
-                            <li> worked as camera assistant at pixipine for 1 year</li> 
+                            <li>Leveraged SQL queries to extract, transform, and load data into databases.</li>
+                            <li>Optimized database structures to improve performance for analytical tasks.</li>
+                            <li>Built clear visualizations enabling users to quickly interpret complex data.</li>
+                            <li>Provided data-driven solutions to support strategic decision-making.</li>
+                            <li>Maintained comprehensive documentation for all data analysis processes.</li>
+                            <li>Developed Tableau dashboards to monitor key performance indicators.</li>
+                            <li>Collaborated directly with clients in high-pressure environments to deliver quality results on tight deadlines.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-semibold">Camera Assistant</h3>
+                        <p class="text-lg text-gray-600 dark:text-gray-400 mb-4">Pixipine | Cairo | February 2024 - March 2025</p>
+                        <ul class="list-disc list-inside space-y-2 text-lg">
+                           <li>Assisted in setting up, managing, and maintaining camera equipment for various productions.</li>
+                           <li>Worked effectively under pressure to deliver high-quality results within tight project deadlines.</li>
                         </ul>
                     </div>
                 </section>
-
-                    <!--certification-->
-                <section class="card p-8">
-                    <h2 class="text-3xl font-bold border-b-2 border-gray-200 pb-2 mb-6">Certifications</h2>
-                    <div>
-                        <h3 class="text-2xl font-semibold mb-2"></h3>
-                        <ul class="list-disc list-inside space-y-2 text-lg">
-                      <li> Data Analysis course — Amit Learning  
-                        Completed a professional training program covering SQL,puthon,Tableau , Excel, Power BI, and Data Visualization techniques.  
-                         </li>  
-                         <li> Machine Learning Specialization — Coursera (Online)  
-                            Completed foundational course covering supervised & unsupervised learning, regression, classification, and model evaluation.  
-                         </li>
-                         </ul> 
-                         </div>
-                         </section>
                 
+                <!-- Certifications Section -->
+                <section class="card p-8 bg-white dark:bg-gray-800">
+                    <h2 class="text-3xl font-bold border-b-2 border-gray-200 dark:border-gray-700 pb-2 mb-6 text-gray-900 dark:text-white">Certifications</h2>
+                    <ul class="space-y-4 text-lg">
+                        <li class="flex items-start">
+                            <i class="fas fa-certificate text-blue-500 mt-1.5 mr-3"></i>
+                            <div>
+                                <strong class="font-semibold">Data Analysis Course</strong> &mdash; <span class="text-gray-600 dark:text-gray-400">Amit Learning</span>
+                                <p class="text-base text-gray-700 dark:text-gray-300">Completed a professional program covering SQL, Python, Tableau, Excel, Power BI, and Data Visualization.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                             <i class="fas fa-certificate text-blue-500 mt-1.5 mr-3"></i>
+                            <div>
+                                <strong class="font-semibold">Machine Learning Specialization</strong> &mdash; <span class="text-gray-600 dark:text-gray-400">Coursera (Online)</span>
+                                <p class="text-base text-gray-700 dark:text-gray-300">Completed foundational course on supervised & unsupervised learning, regression, classification, and model evaluation.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </section>
 
                  <!-- Projects Section -->
-                 <section class="card p-8">
-                    <h2 class="text-3xl font-bold border-b-2 border-gray-200 pb-2 mb-6">Projects</h2>
-                    <div>
-                        <h3 class="text-2xl font-semibold mb-2">
-                           <a href="https://www.linkedin.com/posts/mohammed-ashraf-504a98356_powerbi-dataanalytics-dax-activity-7345934626810462209-H2j5?utm_medium=ios_app&rcm=ACoAAFjLKdQB6ckaaTw5Z_h0266jYpfSaq-eAmI&utm_source=social_share_send&utm_campaign=copy_link" 
-                           target="_blank" class="text-blue-600 hover:underline">HR Analytics Dashboard - Power BI Project</a>
-                        </h3>
-                        <p class="text-lg text-gray-600 mb-2">Data-driven professional with strong analytical and visualization skills, specializing in Power BI and data transformation.</p>
-                        <p class="text-lg leading-relaxed">Designed and developed an interactive HR analytics dashboard using Power BI to analyze key HR metrics. Experienced in delivering projects under tight deadlines and working directly with clients to understand and meet business needs. A quick learner, problem-solver, and adaptable to both technical and creative environments.</p>
+                 <section class="card p-8 bg-white dark:bg-gray-800">
+                    <h2 class="text-3xl font-bold border-b-2 border-gray-200 dark:border-gray-700 pb-2 mb-6 text-gray-900 dark:text-white">Projects</h2>
+                    <div class="space-y-8">
+                        <!-- Project 1 -->
+                        <div>
+                            <h3 class="text-2xl font-semibold mb-2">
+                               <a href="https://www.linkedin.com/posts/mohammed-ashraf-504a98356_powerbi-dataanalytics-dax-activity-7345934626810462209-H2j5" target="_blank" rel="noopener noreferrer" class="text-blue-500 hover:underline">HR Analytics Dashboard</a>
+                            </h3>
+                            <p class="text-lg leading-relaxed">Designed an interactive HR dashboard using Power BI to analyze key metrics, track employee performance, and identify retention trends, enabling data-driven talent management strategies.</p>
+                        </div>
+                        <hr class="dark:border-gray-700">
+                        <!-- Project 2 -->
+                        <div>
+                            <h3 class="text-2xl font-semibold mb-2">
+                               <a href="https://www.linkedin.com/posts/mohammed-ashraf-504a98356_powerbi-dataanalytics-dax-activity-7360012403297636352-CqVq" target="_blank" rel="noopener noreferrer" class="text-blue-500 hover:underline">Sales Performance Dashboard</a>
+                            </h3>
+                            <p class="text-lg leading-relaxed">Developed a dynamic sales dashboard in Power BI to monitor sales targets, track revenue growth, and analyze product performance, providing actionable insights for the sales team.</p>
+                        </div>
+                        <hr class="dark:border-gray-700">
+                        <!-- Project 3 -->
+                        <div>
+                            <h3 class="text-2xl font-semibold mb-2">
+                               <a href="https://www.linkedin.com/posts/mohammed-ashraf-504a98356_powerbi-dataanalytics-dax-activity-7365389932623720449-TxIi" target="_blank" rel="noopener noreferrer" class="text-blue-500 hover:underline">Company Performance Dashboard</a>
+                            </h3>
+                            <p class="text-lg leading-relaxed">Built a comprehensive dashboard to analyze company-wide performance, including revenue, orders, profit, and return rates. Provided insights by region, year, and product category.</p>
+                        </div>
+                         <hr class="dark:border-gray-700">
+                        <!-- Project 4 -->
+                        <div>
+                            <h3 class="text-2xl font-semibold mb-2">
+                               <a href="https://www.linkedin.com/posts/mohammed-ashraf-504a98356_dataanalysis-businessintelligence-datavisualization-activity-7367554500905107458-_aTN" target="_blank" rel="noopener noreferrer" class="text-blue-500 hover:underline">Customer Churn & Analytics Dashboard</a>
+                            </h3>
+                            <p class="text-lg leading-relaxed">Created a customer analytics dashboard for a telecom company to identify key drivers of churn, segment at-risk accounts, and provide a 360-degree view of the customer base.</p>
+                        </div>
                     </div>
-                    <div>
-                        <h3 class="text-2xl font-semibold mb-2">
-                           <a href="https://www.linkedin.com/posts/mohammed-ashraf-504a98356_powerbi-dataanalytics-dax-activity-7360012403297636352-CqVq?utm_medium=ios_app&rcm=ACoAAFjLKdQB6ckaaTw5Z_h0266jYpfSaq-eAmI&utm_source=social_share_send&utm_campaign=copy_link" 
-                           target="_blank" class="text-blue-600 hover:underline">sales Dashboard - Power BI Project</a>
-                        </h3>
-                        <p class="text-lg text-gray-600 mb-2">Data-driven professional with strong analytical and visualization skills, specializing in Power BI and data transformation.</p>
-                        <p class="text-lg leading-relaxed">Sales Dashboard Project – From Data to Insight
-                            I'm excited to share one of my latest projects in Data Analysis using Power BI! 
-                            This project helped me sharpen my skills in:
-                            🔹 Data cleaning & transformation
-                            🔹 Visual storytelling
-                            🔹 Business insights extraction
-                            🔹 Dashboard design
-                            
-                            Power BI made it easy to turn raw data into meaningful visuals that support decision-making.
-                            
-                             Always passionate about solving problems through data.</p>
-                    </div>
-                    <div>
-                        <h3 class="text-2xl font-semibold mb-2">
-                           <a href="https://www.linkedin.com/posts/mohammed-ashraf-504a98356_powerbi-dataanalytics-dax-activity-7365389932623720449-TxIi?utm_medium=ios_app&rcm=ACoAAFjLKdQB6ckaaTw5Z_h0266jYpfSaq-eAmI&utm_source=social_share_send&utm_campaign=copy_link" 
-                           target="_blank" class="text-blue-600 hover:underline">company performance dashboard - Power BI Project</a>
-                        </h3>
-                        <p class="text-lg text-gray-600 mb-2">Data-driven professional with strong analytical and visualization skills, specializing in Power BI and data transformation.</p>
-                        <p class="text-lg leading-relaxed">Excited to share my latest project using Power BI!
-                            I built an interactive dashboard to analyze company performance, including:
-                             Revenue, Orders, Profit, and Return Rate
-                             Insights by Region, Year, Continent, and Category
-                             Most Ordered & Most Returned Products
-                             Gender-based order distribution
-                            
-                            This project helped me improve my data analysis, visualization, and business intelligence skills, and I really enjoyed transforming raw data into meaningful insights.
-                            
-                            Always passionate about turning data into decisions.</p>
-                    </div>
-                    <div>
-                        <h3 class="text-2xl font-semibold mb-2">
-                           <a href="https://www.linkedin.com/posts/mohammed-ashraf-504a98356_dataanalysis-businessintelligence-datavisualization-activity-7367554500905107458-_aTN?utm_medium=ios_app&rcm=ACoAAFjLKdQB6ckaaTw5Z_h0266jYpfSaq-eAmI&utm_source=social_share_send&utm_campaign=copy_link" 
-                           target="_blank" class="text-blue-600 hover:underline">customer churn & analytics Dashboard - Power BI Project</a>
-                        </h3>
-                        <p class="text-lg text-gray-600 mb-2">Data-driven professional with strong analytical and visualization skills, specializing in Power BI and data transformation.</p>
-                        <p class="text-lg leading-relaxed">Customer Churn & Analytics Dashboard | Driving Business Decisions with Data
-
-                            Excited to share my latest project: a comprehensive Customer Analytics Dashboard for a telecommunications company, designed to uncover key drivers of customer behavior and identify at-risk accounts.
-                            
-                            This dashboard centralizes crucial metrics, providing a 360-degree view of the customer base..</p>
-                    </div>
-                    
-
-                    
                 </section>
             </div>
 
-            <!-- Right Column -->
+            <!-- Right Column: Contains Contact, Key Achievements, Skills, and Education sections -->
             <div class="space-y-8">
-            <div class="right-column">
-               
-                <!-- Key Achievements -->
-                <section class="card p-6">
-                    <h2 class="text-2xl font-bold mb-4">Key Achievements</h2>
+                
+                 <!-- Contact Section -->
+                 <section class="card p-6 bg-white dark:bg-gray-800">
+                    <h2 class="text-2xl font-bold mb-4 text-gray-900 dark:text-white">Contact</h2>
+                    <a href="mailto:mohamedam0109m@gmail.com" class="flex items-center space-x-4 mb-3 group">
+                        <i class="fas fa-envelope fa-lg text-gray-500 dark:text-gray-400 group-hover:text-blue-500"></i>
+                        <span class="text-lg group-hover:underline">mohamedam0109m@gmail.com</span>
+                    </a>
+                    <a href="tel:01095404274" class="flex items-center space-x-4 mb-3 group">
+                        <i class="fas fa-phone fa-lg text-gray-500 dark:text-gray-400 group-hover:text-blue-500"></i>
+                        <span class="text-lg group-hover:underline">01095404274</span>
+                    </a>
+                    <a href="https://www.linkedin.com/in/mohammed-ashraf-504a98356" target="_blank" rel="noopener noreferrer" class="flex items-center space-x-4 group">
+                        <i class="fab fa-linkedin fa-lg text-gray-500 dark:text-gray-400 group-hover:text-blue-500"></i>
+                        <span class="text-lg group-hover:underline">LinkedIn Profile</span>
+                    </a>
+                </section>
+
+                <!-- Key Achievements Section -->
+                <section class="card p-6 bg-white dark:bg-gray-800">
+                    <h2 class="text-2xl font-bold mb-4 text-gray-900 dark:text-white">Key Achievements</h2>
                     <ul class="space-y-3">
                         <li class="flex items-start">
-                            <i class="fas fa-star text-yellow-500 mt-1 mr-3"></i>
+                            <i class="fas fa-star text-yellow-400 mt-1 mr-3"></i>
                             <p><strong class="font-semibold">SQL Optimization:</strong> Increased database performance by 20%.</p>
                         </li>
                         <li class="flex items-start">
@@ -173,70 +191,87 @@
                         </li>
                         <li class="flex items-start">
                              <i class="fas fa-check-circle text-blue-500 mt-1 mr-3"></i>
-                           <p><strong class="font-semibold">Reporting Accuracy:</strong> Increased reporting accuracy by 25% by translating raw data.</p>
+                           <p><strong class="font-semibold">Reporting Accuracy:</strong> Increased reporting accuracy by 25%.</p>
                         </li>
                          <li class="flex items-start">
                            <i class="fas fa-cogs text-purple-500 mt-1 mr-3"></i>
-                           <p><strong class="font-semibold">Process Efficiency:</strong> Reduced analysis time by 40% through process streamlining.</p>
+                           <p><strong class="font-semibold">Process Efficiency:</strong> Reduced analysis time by 40%.</p>
                         </li>
                     </ul>
                 </section>
 
                 <!-- Skills Section -->
-                <section class="card p-6">
-                    <h2 class="text-2xl font-bold mb-4">Skills</h2>
+                <section class="card p-6 bg-white dark:bg-gray-800">
+                    <h2 class="text-2xl font-bold mb-4 text-gray-900 dark:text-white">Skills</h2>
                     <div class="flex flex-wrap gap-3">
-                        <span class="tag">SQL</span>
-                        <span class="tag">Tableau</span>
-                        <span class="tag">Power BI</span>
-                        <span class="tag">Excel</span>
-                        <span class="tag">Power Pivot</span>
-                        <span class="tag">IBM SPSS Statistics</span>
-                        <span class="tag">Python</span>
-                        <span class="tag">Data Cleaning</span>
-                        <span class="tag">Dashboard Design</span>
-                        <span class="tag">Problem Solving</span>
-                        <span class="tag">Team Work</span>
-                        <span class="tag">machine learning</span>
-                        <span class="tag">(Pandas, Matplotlib, Seaborn)</span>
-
+                        <span class="tag bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300">SQL</span>
+                        <span class="tag bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300">Tableau</span>
+                        <span class="tag bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300">Power BI</span>
+                        <span class="tag bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300">Excel</span>
+                        <span class="tag bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300">Python</span>
+                        <span class="tag bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300">Machine Learning</span>
+                        <span class="tag bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300">Pandas</span>
+                        <span class="tag bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300">Matplotlib</span>
+                        <span class="tag bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300">Data Cleaning</span>
                     </div>
                 </section>
-                
 
                 <!-- Education Section -->
-                <section class="card p-6">
-                    <h2 class="text-2xl font-bold mb-4">Education</h2>
+                <section class="card p-6 bg-white dark:bg-gray-800">
+                    <h2 class="text-2xl font-bold mb-4 text-gray-900 dark:text-white">Education</h2>
                     <p class="text-lg font-semibold">Bachelor of Computer Science</p>
-                    <p class="text-md text-gray-600">Modern Academy, Maadi</p>
-                    <p class="text-md text-gray-600">Expected Graduation: May 2026</p>
-                    
+                    <p class="text-md text-gray-600 dark:text-gray-400">Modern Academy, Maadi</p>
+                    <p class="text-md text-gray-600 dark:text-gray-400">Expected Graduation: May 2026</p>
                 </section>
             </div>
-
-             <!-- Contact Section -->
-             <section class="card p-6">
-                <h2 class="text-2xl font-bold mb-4">Contact</h2>
-                <div class="flex items-center space-x-4 mb-3">
-                    <i class="fas fa-envelope fa-lg text-gray-500"></i>
-                    <a href="mailto:mohamedam0109m@gmail.com" class="text-lg hover:underline">mohamedam0109m@gmail.com</a>
-                </div>
-                <div class="flex items-center space-x-4 mb-3">
-                    <i class="fas fa-phone fa-lg text-gray-500"></i>
-                    <span class="text-lg">01095404274</span>
-                </div>
-                <div class="flex items-center space-x-4">
-                    <i class="fab fa-linkedin fa-lg text-gray-500"></i>
-                    <a href="https://www.linkedin.com/in/mohammed-ashraf-504a98356" target="_blank" class="text-lg hover:underline">LinkedIn Profile</a>
-                </div>
-            </section>
-
         </main>
 
-        <!-- Footer -->
-        <footer class="text-center mt-12 text-gray-500">
+        <!-- Footer Section -->
+        <footer class="text-center mt-16 text-gray-500 dark:text-gray-400">
             <p>&copy; 2025 Mohamed Ashraf. All Rights Reserved.</p>
         </footer>
     </div>
+
+    <!-- JavaScript for Dark/Light Mode Toggle -->
+    <script>
+        var themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+        var themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+
+        // Change the icons inside the button based on previous settings
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            themeToggleLightIcon.classList.remove('hidden');
+        } else {
+            themeToggleDarkIcon.classList.remove('hidden');
+        }
+
+        var themeToggleBtn = document.getElementById('theme-toggle');
+
+        themeToggleBtn.addEventListener('click', function() {
+            // toggle icons inside button
+            themeToggleDarkIcon.classList.toggle('hidden');
+            themeToggleLightIcon.classList.toggle('hidden');
+
+            // if set via local storage previously
+            if (localStorage.getItem('color-theme')) {
+                if (localStorage.getItem('color-theme') === 'light') {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                }
+
+            // if NOT set via local storage previously
+            } else {
+                if (document.documentElement.classList.contains('dark')) {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                } else {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                }
+            }
+        });
+    </script>
 </body>
 </html>
